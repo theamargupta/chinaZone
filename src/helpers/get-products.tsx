@@ -33,8 +33,6 @@ export async function getProducts() {
       manufacturer,
       type,
       quantity,
-      dosage,
-      substance,
     }) => ({
       id,
       name,
@@ -44,8 +42,6 @@ export async function getProducts() {
       manufacturer,
       type,
       quantity,
-      dosage,
-      substance,
     })
   );
   return products;

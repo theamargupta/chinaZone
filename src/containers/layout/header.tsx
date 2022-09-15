@@ -64,10 +64,10 @@ export default function Header() {
         {isHome && <Search />}
       </div>
 
-      <div className="hidden items-center text-gray-900 mr-10 flex-shrink-0 lg:flex">
+      <div onClick={()=>window.open("tel:+918920605456", "_self")} className="hidden items-center text-gray-900 mr-10 flex-shrink-0 lg:flex">
         <PhoneIcon />
         <span className="font-semibold text-base text-14px ml-3">
-          +1 855-766-5885
+          +91 8920605456
         </span>
       </div>
 

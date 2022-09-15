@@ -27,8 +27,10 @@ export default function Home({ products }) {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
         />
-        <meta name="Description" content="Put your description here." />
-        <title>Medsy</title>
+        <meta name="Description" content="Wholesale Trader of Home Improvement Product, kitchen ware product & Home & Kitchen Equipment offered by Amar Enterprises, Delhi"  />
+        <meta name="keywords" content="Toys Home Improvement Product, kitchen ware product, Home & Kitchen Equipment, Home & Kitchen Appliances, Health & Personal Care Product, Home and Kitchen Accessories, Bathroom things, Amar Enterprises, Delhi" />
+        <title>Amar Enterprises, Delhi - Wholesale Trader of Toys, Home Improvement Product and kitchen ware product
+        </title>
       </Head>
 
       <HeroBlock />

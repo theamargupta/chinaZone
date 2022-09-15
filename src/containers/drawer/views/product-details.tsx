@@ -98,37 +98,7 @@ export default function ProductDetails() {
             )}
           </div>
 
-          <div className="flex w-full flex-col">
-            <div className="flex flex-col justify-start full mt-10 pr-30px even:pr-0">
-              <span className="text-gray-500 text-11px mb-2">Dosages Form</span>
-              <span className="font-normal text-13px text-gray-900 capitalize">
-                {state.item.type}
-              </span>
-            </div>
 
-            <div className="flex flex-col justify-start full mt-10 pr-30px even:pr-0">
-              <span className="text-gray-500 text-11px mb-2">Dosages</span>
-              <span className="font-normal text-13px text-gray-900 capitalize">
-                {state.item.dosage}
-              </span>
-            </div>
-
-            <div className="flex flex-col justify-start full mt-10 pr-30px even:pr-0">
-              <span className="text-gray-500 text-11px mb-2">
-                Active Substance
-              </span>
-              <span className="font-normal text-13px text-gray-900 capitalize">
-                {state.item.substance}
-              </span>
-            </div>
-
-            <div className="flex flex-col justify-start full mt-10 pr-30px even:pr-0">
-              <span className="text-gray-500 text-11px mb-2">Manufacturer</span>
-              <span className="font-normal text-13px text-gray-900 capitalize">
-                {state.item.manufacturer}
-              </span>
-            </div>
-          </div>
         </div>
       </Scrollbar>
 
