@@ -1,10 +1,10 @@
-import { useContext } from 'react';
-import Link from 'next/link';
-import { Scrollbar } from 'components/scrollbar';
-import ActiveLink from 'components/active-link';
-import { DrawerContext } from 'contexts/drawer/drawer.provider';
-import CloseIcon from 'assets/icons/close';
-import Logo from 'assets/icons/logo';
+import { useContext } from "react";
+import Link from "next/link";
+import { Scrollbar } from "components/scrollbar";
+import ActiveLink from "components/active-link";
+import { DrawerContext } from "contexts/drawer/drawer.provider";
+import CloseIcon from "assets/icons/close";
+import Logo from "assets/icons/logo";
 import {
   Facebook,
   Twitter,
@@ -12,78 +12,68 @@ import {
   Github,
   Instagram,
   Linkedin,
-} from 'assets/icons/social-icons';
+} from "assets/icons/social-icons";
 
 const menus = [
   {
     id: 1,
-    pathname: '/',
-    title: 'Medsy Modern',
+    pathname: "/",
+    title: "Amar Enterprises",
   },
   {
     id: 2,
-    pathname: 'https://medsy-minimal.vercel.app/',
-    title: 'Medsy Minimal',
+    pathname: "/faq",
+    title: "FAQ",
   },
   {
     id: 3,
-    pathname: 'https://medsy-classic.vercel.app/',
-    title: 'Medsy Classic',
-  },
-  {
-    id: 4,
-    pathname: '/faq',
-    title: 'FAQ',
-  },
-  {
-    id: 5,
-    pathname: '/terms',
-    title: 'Terms & Conditions',
+    pathname: "/terms",
+    title: "Terms & Conditions",
   },
 ];
 
 const social = [
   {
     id: 0,
-    link: '/',
+    link: "/",
     icon: <Facebook />,
-    className: 'facebook',
-    title: 'facebook',
+    className: "facebook",
+    title: "facebook",
   },
   {
     id: 1,
-    link: '/',
+    link: "/",
     icon: <Twitter />,
-    className: 'twitter',
-    title: 'twitter',
+    className: "twitter",
+    title: "twitter",
   },
   {
     id: 2,
-    link: '/',
+    link: "/",
     icon: <Youtube />,
-    className: 'youtube',
-    title: 'youtube',
+    className: "youtube",
+    title: "youtube",
   },
   {
     id: 3,
-    link: '/',
+    link: "/",
     icon: <Github />,
-    className: 'github',
-    title: 'github',
+    className: "github",
+    title: "github",
   },
   {
     id: 4,
-    link: '/',
+    link: "/",
     icon: <Instagram />,
-    className: 'instagram',
-    title: 'instagram',
+    className: "instagram",
+    title: "instagram",
   },
   {
     id: 5,
-    link: '/',
+    link: "/",
     icon: <Linkedin />,
-    className: 'linkedin',
-    title: 'linkedin',
+    className: "linkedin",
+    title: "linkedin",
   },
 ];
 
@@ -91,7 +81,7 @@ export default function DrawerMenu() {
   const { dispatch } = useContext(DrawerContext);
   const hideMenu = () => {
     dispatch({
-      type: 'OPEN_MENU',
+      type: "OPEN_MENU",
       payload: {
         menu: false,
       },
@@ -104,15 +94,18 @@ export default function DrawerMenu() {
         <div className="w-full h-90px bg-gray-100 flex justify-start items-center relative px-30px flex-shrink-0">
           <Link href="/">
             <a className="flex" onClick={hideMenu}>
-              <span className="sr-only">Medsy</span>
+              <span className="sr-only">Amar Enterprises</span>
               <Logo width="100px" id="medsy-menu-logo" />
             </a>
           </Link>
 
-          <div className="flex items-center justify-end ml-auto pl-30px pr-50px text-gray-700 flex-shrink-0 lg:hidden">
+          <div
+            className="flex items-center justify-end ml-auto pl-30px pr-50px text-gray-700 flex-shrink-0 lg:hidden"
+            onClick={() => window.open("tel:+918920605456", "_self")}
+          >
             {/* <PhoneIcon /> */}
             <span className="font-semibold text-base text-14px ml-3">
-              +1 855-766-5885
+              +91 8920605456
             </span>
           </div>
 

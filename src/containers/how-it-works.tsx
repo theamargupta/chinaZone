@@ -11,7 +11,7 @@ const data = [
   {
     id: 2,
     background: '#ceeffe',
-    title: 'Picking your order',
+    title: 'Confirming your order',
     description:
       'Your order is being picked and now will be forwarded for packaging.',
   },
