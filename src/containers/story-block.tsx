@@ -21,7 +21,7 @@ const StoryBlock = () => {
             profileImage={
               "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/8810473a_110x110@2x.jpg?v=1664521971"
             }
-            heading={"Child Wraps"}
+            heading={"Child Blanket"}
           />
           <Header
             profileImage={
@@ -40,10 +40,17 @@ const StoryBlock = () => {
         <>
           <div
             className="justify-center items-center flex flex-col overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
-            style={{ background: "black" }}
+            style={{ background: "black", height: "100%" }}
           >
+            <Stories
+              stories={stories2}
+              defaultInterval={3000}
+              width={"100%"}
+              height={"80vh"}
+              onAllStoriesEnd={() => setOpenStory(true)}
+            />
             <div
-              className="w-full flex justify-end"
+              className="w-full flex justify-center align-top"
               onClick={() => setOpenStory(true)}
             >
               <img
@@ -52,14 +59,6 @@ const StoryBlock = () => {
                 width="50"
               />
             </div>
-            <div></div>
-
-            <Stories
-              stories={stories2}
-              defaultInterval={3000}
-              width={400}
-              height={768}
-            />
           </div>
         </>
       )}
@@ -69,30 +68,36 @@ const StoryBlock = () => {
 export default StoryBlock;
 const stories2 = [
   {
-    url: "https://picsum.photos/1000/1000",
+    url:
+      "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/1_360x.png?v=1658314706",
     duration: 5000,
     header: {
       heading: "Amar Enterprises",
       subheading: "Posted 30m ago",
-      profileImage: "https://picsum.photos/100/100",
+      profileImage:
+        "https://i.ibb.co/7b4mFp5/295498313-111917338261987-3661204109327278358-n.jpg",
     },
   },
   {
-    url: "https://picsum.photos/1000/1000",
+    url:
+      "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/photo_2022-07-19_17-30-46_360x.jpg?v=1658314846",
     duration: 5000,
     header: {
       heading: "Amar Enterprises",
       subheading: "Posted 30m ago",
-      profileImage: "https://picsum.photos/100/100",
+      profileImage:
+        "https://i.ibb.co/7b4mFp5/295498313-111917338261987-3661204109327278358-n.jpg",
     },
   },
   {
-    url: "https://picsum.photos/1000/1000",
+    url:
+      "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/Sd2b7d5c97d0648798c759d37e6ff5971z_360x.jpg?v=1658459727",
     duration: 5000,
     header: {
       heading: "Amar Enterprises",
       subheading: "Posted 30m ago",
-      profileImage: "https://picsum.photos/100/100",
+      profileImage:
+        "https://i.ibb.co/7b4mFp5/295498313-111917338261987-3661204109327278358-n.jpg",
     },
     seeMore: ({ close }) => {
       return (
@@ -131,7 +136,8 @@ const stories2 = [
     header: {
       heading: "Amar Enterprises",
       subheading: "Posted 30m ago",
-      profileImage: "https://picsum.photos/100/100",
+      profileImage:
+        "https://i.ibb.co/7b4mFp5/295498313-111917338261987-3661204109327278358-n.jpg",
     },
   },
 ];
