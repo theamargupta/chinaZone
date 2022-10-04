@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Stories, { WithHeader, WithSeeMore } from "react-insta-stories";
+import Stories from "react-insta-stories";
 
 const StoryBlock = () => {
   const [openStory, setOpenStory] = useState(true);

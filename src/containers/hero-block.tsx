@@ -1,9 +1,9 @@
 import React from 'react';
 import Carousel from 'components/carousel/carousel';
-import CouponImg from 'assets/image/coupon-card.png';
-import OrderImg from 'assets/image/custom-order.png';
-import DeliveryImg from 'assets/image/fast-delivery.png';
-import FemaleCareImg from 'assets/image/female-care.png';
+import DeliveryImg from 'assets/image/Toys.gif';
+import OrderImg from 'assets/image/2.jpg';
+import CouponImg from 'assets/image/3.jpg';
+import FemaleCareImg from 'assets/image/4.jpg';
 
 const data = [
   {
