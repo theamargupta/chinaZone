@@ -1,13 +1,14 @@
-import { useEffect } from 'react';
-import Head from 'next/head';
-import Layout from 'containers/layout/layout';
-import HeroBlock from 'containers/hero-block';
-import Products from 'containers/products';
-import CallToAction from 'containers/call-to-action';
-import HowItWorks from 'containers/how-it-works';
-import { useRefScroll } from 'helpers/use-ref-scroll';
-import { useSearch } from 'contexts/search/use-search';
-import { getProducts } from 'helpers/get-products';
+import { useEffect } from "react";
+import Head from "next/head";
+import Layout from "containers/layout/layout";
+import HeroBlock from "containers/hero-block";
+import Products from "containers/products";
+import CallToAction from "containers/call-to-action";
+import HowItWorks from "containers/how-it-works";
+import { useRefScroll } from "helpers/use-ref-scroll";
+import { useSearch } from "contexts/search/use-search";
+import { getProducts } from "helpers/get-products";
+import StoryBlock from "containers/story-block";
 
 export default function Home({ products }) {
   const { elRef, scroll } = useRefScroll({
@@ -27,12 +28,20 @@ export default function Home({ products }) {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
         />
-        <meta name="Description" content="Wholesale Trader of Home Improvement Product, kitchen ware product & Home & Kitchen Equipment offered by Amar Enterprises, Delhi"  />
-        <meta name="keywords" content="Toys Home Improvement Product, kitchen ware product, Home & Kitchen Equipment, Home & Kitchen Appliances, Health & Personal Care Product, Home and Kitchen Accessories, Bathroom things, Amar Enterprises, Delhi" />
-        <title>Amar Enterprises, Delhi - Wholesale Trader of Toys, Home Improvement Product and kitchen ware product
+        <meta
+          name="Description"
+          content="Wholesale Trader of Home Improvement Product, kitchen ware product & Home & Kitchen Equipment offered by Amar Enterprises, Delhi"
+        />
+        <meta
+          name="keywords"
+          content="Toys Home Improvement Product, kitchen ware product, Home & Kitchen Equipment, Home & Kitchen Appliances, Health & Personal Care Product, Home and Kitchen Accessories, Bathroom things, Amar Enterprises, Delhi"
+        />
+        <title>
+          Amar Enterprises, Delhi - Wholesale Trader of Toys, Home Improvement
+          Product and kitchen ware product
         </title>
       </Head>
-
+      <StoryBlock />
       <HeroBlock />
       <HowItWorks />
       <Products items={products} ref={elRef} />

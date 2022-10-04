@@ -22,6 +22,7 @@
     "rc-collapse": "^2.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-insta-stories": "^2.4.2",
     "react-multi-carousel": "^2.5.5",
     "react-number-format": "^4.4.1",
     "react-scroll": "^1.8.1",
