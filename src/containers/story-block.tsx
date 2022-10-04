@@ -1,60 +1,81 @@
-import React from "react";
-import Stories, { WithSeeMore } from "react-insta-stories";
+import { useState } from "react";
+import Stories, { WithHeader, WithSeeMore } from "react-insta-stories";
 
-export default function StoryBlock() {
+const StoryBlock = () => {
+  const [openStory, setOpenStory] = useState(true);
   return (
-    <div className="w-full flex items-center justify-center relative my-35px">
-      <Stories
-        stories={stories2}
-        defaultInterval={3000}
-        width={400}
-        height={768}
-      />
+    <div className="w-full flex items-center justify-center relative  sm:hidden">
+      {openStory ? (
+        <div
+          onClick={() => setOpenStory(false)}
+          className="flex items-center justify-center"
+          style={{ cursor: "pointer" }}
+        >
+          <Header
+            profileImage={
+              "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/1_110x110@2x.png?v=1658314706"
+            }
+            heading={"Cactus"}
+          />
+          <Header
+            profileImage={
+              "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/8810473a_110x110@2x.jpg?v=1664521971"
+            }
+            heading={"Child Wraps"}
+          />
+          <Header
+            profileImage={
+              "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/photo_2022-07-19_17-30-46_110x110@2x.jpg?v=1658314846"
+            }
+            heading={"UFO Ball"}
+          />
+          <Header
+            profileImage={
+              "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/Sd2b7d5c97d0648798c759d37e6ff5971z_110x110@2x.jpg?v=1658459727"
+            }
+            heading={"Talking Flash Cards"}
+          />
+        </div>
+      ) : (
+        <>
+          <div
+            className="justify-center items-center flex flex-col overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+            style={{ background: "black" }}
+          >
+            <div
+              className="w-full flex justify-end"
+              onClick={() => setOpenStory(true)}
+            >
+              <img
+                src="https://www.freeiconspng.com/thumbs/close-button-png/black-circle-close-button-png-5.png"
+                alt=""
+                width="50"
+              />
+            </div>
+            <div></div>
+
+            <Stories
+              stories={stories2}
+              defaultInterval={3000}
+              width={400}
+              height={768}
+            />
+          </div>
+        </>
+      )}
     </div>
   );
-}
-
+};
+export default StoryBlock;
 const stories2 = [
   {
-    content: () => (
-      <div
-        style={{
-          display: "flex",
-          // alignItems: "center",
-          justifyContent: "space-around",
-          flexDirection: "column",
-          background: "rgb(51, 51, 51)",
-          color: "#fff",
-          width: "100%",
-          padding: "20px",
-          height: "100%",
-        }}
-      >
-        <h1 style={{ color: "#fff" }}>The new version is here.</h1>
-        <p>This is the new story.</p>
-        <p>Now render React components right into your stories.</p>
-        <p>Possibilities are endless, like here - here's a code block!</p>
-        <pre>
-          <code
-            style={{
-              background: "rgb(238, 238, 238)",
-              padding: "5px 10px",
-              borderRadius: "4px",
-              color: "rgb(51, 51, 51)",
-            }}
-          >
-            console.log('Hello, world!')
-          </code>
-        </pre>
-        <p>Or here, an image!</p>
-        <br />
-        <img
-          src="https://images.unsplash.com/photo-1565506737357-af89222625ad?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1650&amp;q=80"
-          style={{ display: "block", maxWidth: "100%", borderRadius: "4px" }}
-        />
-        <h3>Perfect. But there's more! →</h3>
-      </div>
-    ),
+    url: "https://picsum.photos/1000/1000",
+    duration: 5000,
+    header: {
+      heading: "Amar Enterprises",
+      subheading: "Posted 30m ago",
+      profileImage: "https://picsum.photos/100/100",
+    },
   },
   {
     url: "https://picsum.photos/1000/1000",
@@ -68,7 +89,11 @@ const stories2 = [
   {
     url: "https://picsum.photos/1000/1000",
     duration: 5000,
-    // seeMoreCollapsed: () => <h1>CheckOut</h1>,
+    header: {
+      heading: "Amar Enterprises",
+      subheading: "Posted 30m ago",
+      profileImage: "https://picsum.photos/100/100",
+    },
     seeMore: ({ close }) => {
       return (
         <div
@@ -101,11 +126,48 @@ const stories2 = [
     },
   },
   {
-    content: (props) => (
-      <div style={{ background: "pink", padding: 20, height: "100%" }}>
-        <h1 style={{ marginTop: 10, marginBottom: 0 }}>🌝</h1>
-        <h1 style={{ marginTop: 5 }}>A custom title can go here.</h1>
-      </div>
-    ),
+    url: "https://picsum.photos/1000/1000",
+    duration: 5000,
+    header: {
+      heading: "Amar Enterprises",
+      subheading: "Posted 30m ago",
+      profileImage: "https://picsum.photos/100/100",
+    },
   },
 ];
+
+const Header = ({ profileImage, heading }) => (
+  <div style={styles.main as React.CSSProperties}>
+    {profileImage && <img style={styles.img} src={profileImage} />}
+    <span style={styles.text as React.CSSProperties}>
+      <p style={styles.heading}>{heading}</p>
+    </span>
+  </div>
+);
+
+const styles = {
+  main: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    margin: 10,
+  },
+  img: {
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+    border: "2px solid rgba(0, 0, 0)",
+  },
+  text: {
+    display: "flex",
+    flexDirection: "column",
+    filter: "drop-shadow(0 0px 3px rgba(0, 0, 0))",
+    marginRight: 10,
+  },
+  heading: {
+    fontSize: "0.5rem",
+    color: "rgba(0, 0, 0)",
+    margin: 0,
+    marginBottom: 2,
+  },
+};
