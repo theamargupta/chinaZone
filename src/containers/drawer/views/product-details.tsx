@@ -1,11 +1,17 @@
-import React, { useState, useContext } from 'react';
-import { Scrollbar } from 'components/scrollbar';
-import Button from 'components/button';
-import { CURRENCY } from 'helpers/constants';
-import { useCart } from 'contexts/cart/cart.provider';
-import { DrawerContext } from 'contexts/drawer/drawer.provider';
-import ArrowLeft from 'assets/icons/arrow-left';
-import Counter from 'components/counter';
+import React, { useState, useContext } from "react";
+import { Scrollbar } from "components/scrollbar";
+import Button from "components/button";
+import { CURRENCY } from "helpers/constants";
+import { useCart } from "contexts/cart/cart.provider";
+import { DrawerContext } from "contexts/drawer/drawer.provider";
+import ArrowLeft from "assets/icons/arrow-left";
+import Counter from "components/counter";
+import {
+  ItemCardInformation,
+  ItemCardMoq,
+  ItemCardName,
+  ItemCardPrice,
+} from "components/utils/theme";
 
 export default function ProductDetails() {
   const [visibility, setVisibility] = useState(false);
@@ -20,14 +26,14 @@ export default function ProductDetails() {
 
   const hideDetails = () => {
     dispatch({
-      type: 'TOGGLE_PRODUCT_DETAIL',
+      type: "TOGGLE_PRODUCT_DETAIL",
       payload: {
         showDetails: false,
       },
     });
 
     dispatch({
-      type: 'SLIDE_CART',
+      type: "SLIDE_CART",
       payload: {
         open: false,
       },
@@ -37,7 +43,7 @@ export default function ProductDetails() {
   const addToCart = () => {
     addItem(state.item);
     dispatch({
-      type: 'TOGGLE_CART_VIEW',
+      type: "TOGGLE_CART_VIEW",
       payload: {
         showCart: true,
       },
@@ -63,42 +69,19 @@ export default function ProductDetails() {
           <div className="flex items-center justify-center w-full h-360px overflow-hidden rounded mb-30px">
             <img src={state.item.image} alt={`${state.item.name}-img`} />
           </div>
-
-          <div className="flex flex-col items-start mb-4">
-            <span className="text-gray-900 font-semibold mb-2">
+          <div>
+            <div>
+              
+           
+            <span className={ItemCardPrice}>
               {CURRENCY}
               {state.item.price}
-            </span>
-            <span className="mb-3">{state.item.name}</span>
-            <p className="flex items-center mb-5">
-              <span className=" text-gray-500 text-11px capitalize">
-                {state.item.type}
-              </span>
-              <span className="flex bg-gray-500 w-3px h-3px rounded mx-3" />
-              <span className=" text-gray-500 text-11px">
-                {state.item.quantity}{' '}
-                {state.item.quantity > 1 ? 'pieces' : 'piece'}
-              </span>
-            </p>
+            </span> </div>
+            <span className={ItemCardName}>{state.item.name}</span>
 
-            {visibility === true ? (
-              <p className="my-5">{state.item.description}</p>
-            ) : (
-              ''
-            )}
-
-            {state.item.description && (
-              <button
-                className="font-semibold text-11px text-gray-800 mt-2 focus:outline-none"
-                onClick={toggleVisibility}
-                aria-label="details"
-              >
-                {visibility === true ? 'Less Details' : 'More Details'}
-              </button>
-            )}
+            <div className={ItemCardInformation}>{state.item.description}</div>
+            <div className={ItemCardMoq}>MOQ : {state.item.moq}</div>
           </div>
-
-
         </div>
       </Scrollbar>
 

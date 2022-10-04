@@ -146,7 +146,7 @@ const Header = ({ profileImage, heading }) => (
   <div style={styles.main as React.CSSProperties}>
     {profileImage && <img style={styles.img} src={profileImage} />}
     <span style={styles.text as React.CSSProperties}>
-      <p style={styles.heading}>{heading}</p>
+      <p style={styles.heading as React.CSSProperties}>{heading}</p>
     </span>
   </div>
 );
@@ -167,12 +167,12 @@ const styles = {
   text: {
     display: "flex",
     flexDirection: "column",
-    filter: "drop-shadow(0 0px 3px rgba(0, 0, 0))",
     marginRight: 10,
   },
   heading: {
-    fontSize: "0.5rem",
+    fontSize: "0.7rem",
     color: "rgba(0, 0, 0)",
+    fontWeight: "bold",
     margin: 0,
     marginBottom: 2,
   },

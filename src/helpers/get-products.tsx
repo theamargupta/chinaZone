@@ -7,16 +7,16 @@ export async function getProducts() {
     )
   ) {
     throw new Error(
-      'GOOGLE credentials must be set as env vars `GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL` ,`GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY` and `GOOGLE_SPREADSHEET_ID_PRODUCT`.'
+      "GOOGLE credentials must be set as env vars `GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL` ,`GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY` and `GOOGLE_SPREADSHEET_ID_PRODUCT`."
     );
   }
-  const { GoogleSpreadsheet } = require('google-spreadsheet');
+  const { GoogleSpreadsheet } = require("google-spreadsheet");
   const doc = new GoogleSpreadsheet(process.env.GOOGLE_SPREADSHEET_ID_PRODUCT);
   await doc.useServiceAccountAuth({
     client_email: process.env.GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL,
     private_key: process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY.replace(
       /\\n/gm,
-      '\n'
+      "\n"
     ),
   });
   await doc.loadInfo(); // loads document properties and worksheets
@@ -24,24 +24,14 @@ export async function getProducts() {
   // read rows
   const rows = await sheet.getRows(); // can pass in { limit, offset }
   const products = rows?.map(
-    ({
-      id,
-      name,
-      image,
-      description,
-      price,
-      manufacturer,
-      type,
-      quantity,
-    }) => ({
-      id,
-      name,
-      image,
-      description,
-      price,
-      manufacturer,
-      type,
-      quantity,
+    ({ id, name, image, description, price, category, moq }) => ({
+      id: id ? id : null,
+      name: name ? name : null,
+      image: image ? image : null,
+      description: description ? description : null,
+      price: price ? price : null,
+      category: category ? category : null,
+      moq: moq ? moq : null,
     })
   );
   return products;

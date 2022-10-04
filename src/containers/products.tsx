@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import ItemCard from 'components/item-card';
 import { DrawerContext } from 'contexts/drawer/drawer.provider';
+import { useCart } from 'contexts/cart/cart.provider';
 import { useSearch } from 'contexts/search/use-search';
 import { useSearchable } from 'helpers/use-searchable';
 import NotFound from 'assets/icons/not-found';
@@ -13,6 +14,7 @@ const Products = React.forwardRef(
     const searchableItems = useSearchable(items, searchTerm, (item) => [
       item.name,
     ]);
+    const { addItem, removeItem, getItem } = useCart();
     const showDetails = (item) => {
       dispatch({
         type: 'STORE_PRODUCT_DETAIL',
@@ -45,6 +47,9 @@ const Products = React.forwardRef(
                 key={item.id}
                 item={item}
                 onClick={() => showDetails(item)}
+                value={getItem(item.id)?.quantity}
+                onIncrement={() => addItem(item)}
+                onDecrement={() => removeItem(item)}
               />
             ))}
           </div>

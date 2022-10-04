@@ -21,6 +21,26 @@ const menus = [
     title: "Amar Enterprises",
   },
   {
+    id: "1a",
+    pathname: "/category/Toys",
+    title: "Toys",
+  },
+  {
+    id: "1b",
+    pathname: "/category/Home And Kitchen",
+    title: "Home And Kitchen",
+  },
+  {
+    id: "1c",
+    pathname: "/category/Stationary",
+    title: "Stationary",
+  },
+  {
+    id: "1c",
+    pathname: "/category/Dropshipping",
+    title: "Dropshipping",
+  },
+  {
     id: 2,
     pathname: "/faq",
     title: "FAQ",

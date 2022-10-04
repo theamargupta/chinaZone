@@ -38,6 +38,17 @@ export const CounterSize = {
   big: 'h-12',
   normal: 'h-35px',
 };
+// -----------------
+// Animated Counter
+// -----------------
+export const AnimatedCounterBaseWrapper =
+  'relative h-35px flex-shrink-0 rounded overflow-hidden';
+
+export const AnimatedCounterBase =
+  'group flex items-center justify-between h-35px rounded absolute top-0 right-0 bg-gray-900';
+
+export const AnimatedCounterValue =
+  'font-semibold text-13px text-white flex items-center justify-center h-full w-40px transition-colors duration-250 ease-in-out cursor-default';
 
 // -----------------
 // Input & Textarea
@@ -101,11 +112,37 @@ export const CTAContent =
 // ----------
 // Item Card .... Height uthay dite hobe image theke
 // ----------
-export const ItemCardBase = 'w-full flex flex-col items-start cursor-pointer';
+export const ItemCardBase =
+  'w-full flex flex-col border border-gray-300 rounded p-4 bg-white transition duration-350 ease-in-out';
+
+export const ItemCardBaseContent = 'flex flex-col items-start';
+
 export const ItemCardImage =
-  'flex justify-center items-center w-full rounded overflow-hidden';
-export const ItemCardContent = 'flex flex-col items-start mt-3';
-export const ItemCardPrice = 'font-semibold text-gray-900 mb-2 text-16px';
+  'flex justify-center items-center w-fit h-auto rounded overflow-hidden bg-gray-200 flex-shrink-0 mr-4';
+
+export const ItemCardContent =
+  'flex flex-col w-full items-start overflow-hidden';
+
+export const ItemCardPrice = 'font-semibold text-gray-900 mb-1 text-16px';
+
+export const ItemCardName = 'text-13px font-semibold text-gray-800 truncate w-full text-18px';
+
+export const ItemCardInformation =
+  'flex items-center my-1 overflow-hidden w-full';
+
+export const ItemCardMoq = 'text-blue-800 font-semibold text-16px';
+
+export const ItemCardRoundedDot =
+  'flex bg-gray-500 w-3px h-3px rounded mx-3 flex-shrink-0';
+
+export const ItemCardQuantity = 'text-gray-500 text-11px truncate';
+
+export const ItemCardDetailsButton =
+  'text-gray-500 text-11px font-semebold text-gray-900 mt-1 focus:outline-none';
+
+export const ItemCardCounterWrapper =
+  'ml-auto mt-2 w-full flex justify-end items-end';
+
 
 // ----------
 // SearchBox
