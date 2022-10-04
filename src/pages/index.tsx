@@ -9,8 +9,9 @@ import { useRefScroll } from "helpers/use-ref-scroll";
 import { useSearch } from "contexts/search/use-search";
 import { getProducts } from "helpers/get-products";
 import StoryBlock from "containers/story-block";
+import { getStories } from "helpers/get-stories";
 
-export default function Home({ products }) {
+export default function Home({ products, stories }) {
   const { elRef, scroll } = useRefScroll({
     percentOfElement: 0,
     percentOfContainer: 0,
@@ -41,7 +42,7 @@ export default function Home({ products }) {
           Product and kitchen ware product
         </title>
       </Head>
-      <StoryBlock />
+      <StoryBlock storyItems={stories} />
       <HeroBlock />
       <HowItWorks />
       <Products items={products} ref={elRef} />
@@ -52,9 +53,11 @@ export default function Home({ products }) {
 
 export async function getServerSideProps() {
   const products = await getProducts();
+  const stories = await getStories();
   return {
     props: {
       products,
+      stories,
     },
   };
 }

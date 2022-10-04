@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Stories from "react-insta-stories";
 
-const StoryBlock = () => {
+const StoryBlock = ({ storyItems }: any) => {
   const [openStory, setOpenStory] = useState(true);
+
   return (
     <div className="w-full flex items-center justify-center relative  sm:hidden">
       {openStory ? (
@@ -12,28 +13,19 @@ const StoryBlock = () => {
           style={{ cursor: "pointer" }}
         >
           <Header
-            profileImage={
-              "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/1_110x110@2x.png?v=1658314706"
-            }
-            heading={"Cactus"}
+            key={storyItems[0].id}
+            profileImage={storyItems[0].thumb}
+            heading={storyItems[0].name}
           />
           <Header
-            profileImage={
-              "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/8810473a_110x110@2x.jpg?v=1664521971"
-            }
-            heading={"Child Blanket"}
+            key={storyItems[1].id}
+            profileImage={storyItems[1].thumb}
+            heading={storyItems[1].name}
           />
           <Header
-            profileImage={
-              "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/photo_2022-07-19_17-30-46_110x110@2x.jpg?v=1658314846"
-            }
-            heading={"UFO Ball"}
-          />
-          <Header
-            profileImage={
-              "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/Sd2b7d5c97d0648798c759d37e6ff5971z_110x110@2x.jpg?v=1658459727"
-            }
-            heading={"Talking Flash Cards"}
+            key={storyItems[2].id}
+            profileImage={storyItems[2].thumb}
+            heading={storyItems[2].name}
           />
         </div>
       ) : (
@@ -43,9 +35,22 @@ const StoryBlock = () => {
             style={{ background: "black", height: "100%" }}
           >
             <Stories
-              stories={stories2}
+              stories={storyItems.map((item) => ({
+                url: item.content,
+                duration: 3000,
+                type: item.type,
+                header: {
+                  heading: item.name,
+                  subheading: "Amar Enterprises",
+                  profileImage: item.thumb,
+                },
+              }))}
+              storyStyles={{
+                width: "100vw",
+                objectFit: "cover",
+              }}
               defaultInterval={3000}
-              width={"100%"}
+              width={"100vw"}
               height={"80vh"}
               onAllStoriesEnd={() => setOpenStory(true)}
             />
@@ -66,81 +71,6 @@ const StoryBlock = () => {
   );
 };
 export default StoryBlock;
-const stories2 = [
-  {
-    url:
-      "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/1_360x.png?v=1658314706",
-    duration: 5000,
-    header: {
-      heading: "Amar Enterprises",
-      subheading: "Posted 30m ago",
-      profileImage:
-        "https://i.ibb.co/7b4mFp5/295498313-111917338261987-3661204109327278358-n.jpg",
-    },
-  },
-  {
-    url:
-      "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/photo_2022-07-19_17-30-46_360x.jpg?v=1658314846",
-    duration: 5000,
-    header: {
-      heading: "Amar Enterprises",
-      subheading: "Posted 30m ago",
-      profileImage:
-        "https://i.ibb.co/7b4mFp5/295498313-111917338261987-3661204109327278358-n.jpg",
-    },
-  },
-  {
-    url:
-      "https://cdn.shopify.com/s/files/1/0624/0659/0635/products/Sd2b7d5c97d0648798c759d37e6ff5971z_360x.jpg?v=1658459727",
-    duration: 5000,
-    header: {
-      heading: "Amar Enterprises",
-      subheading: "Posted 30m ago",
-      profileImage:
-        "https://i.ibb.co/7b4mFp5/295498313-111917338261987-3661204109327278358-n.jpg",
-    },
-    seeMore: ({ close }) => {
-      return (
-        <div
-          style={{
-            height: "100%",
-            width: "100%",
-            position: "absolute",
-            top: "0px",
-            left: "0px",
-            boxSizing: "border-box",
-            zIndex: 99999,
-          }}
-          onClick={close}
-        >
-          <div
-            style={{
-              maxWidth: "100%",
-              height: "100%",
-              padding: "40px",
-              background: "white",
-            }}
-          >
-            <h2>Just checking the see more feature.</h2>
-            <p style={{ textDecoration: "underline" }}>
-              Go on, close this popup.
-            </p>
-          </div>
-        </div>
-      );
-    },
-  },
-  {
-    url: "https://picsum.photos/1000/1000",
-    duration: 5000,
-    header: {
-      heading: "Amar Enterprises",
-      subheading: "Posted 30m ago",
-      profileImage:
-        "https://i.ibb.co/7b4mFp5/295498313-111917338261987-3661204109327278358-n.jpg",
-    },
-  },
-];
 
 const Header = ({ profileImage, heading }) => (
   <div style={styles.main as React.CSSProperties}>

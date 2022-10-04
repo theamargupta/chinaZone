@@ -40,7 +40,7 @@ const Post = () => {
 export default Post;
 export async function getServerSideProps() {
   const products = await getProducts();
-  console.log(products)
+
   return {
     props: {
       products,
